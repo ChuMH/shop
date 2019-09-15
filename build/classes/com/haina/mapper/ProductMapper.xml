@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haina.dao.ProductDao">
+	<select id="getTotalDataCountBySearch" parameterType="String" resultType="Integer">
+	select count(*) from tb_products where productName=#{search}
+	</select>
+	<select id="showproductBySearch" parameterType="Map" resultType="Product">
+	select * from tb_products where productName=#{search} limit #{startlocation},#{length}
+	</select>
+	<select id="selectProductById" parameterType="Integer" resultType="Product">
+	select * from tb_products where id=#{pid}
+	</select>
+</mapper> 
+
+
+
+

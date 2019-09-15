@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration><!-- 引入jdbc资源文件 -->
+	
+	<typeAliases>
+	<!--下面这个包里面的域模型实体类会被
+	持久化User 如果没有这个配置，那么我们的实体类使用的时候 com.haina.domain.User 全名  -->
+	<package name="com.haina.domain"/>
+	</typeAliases>
+	
+</configuration>

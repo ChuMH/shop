@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haina.dao.UserDao">
+<!-- com.haina.domain.User参数类型 -->
+<!-- <insert id="add" parameterType="com.haina.domain.User"> -->
+<insert id="register" parameterType="User">
+insert into tb_users values(default,#{username},#{email},#{password})
+</insert>
+
+<select id="login" parameterType="User" resultType="User">
+select * from tb_users where email=#{email} and password=#{password}
+</select>
+</mapper> 
+
+
+
+

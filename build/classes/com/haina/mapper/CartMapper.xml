@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haina.dao.CartDao">
+	<insert id="addProductToCart" parameterType="Cart">
+	insert into tb_carts values(default,#{userid},#{pid},#{count})
+	</insert>
+	<select id="getTotalDataCount" parameterType="Integer" resultType="Integer">
+	select count(*) from tb_carts where userid=#{userid}
+	</select>
+	
+	
+	<resultMap type="Cart" id="cartMap">
+		<id property="id" javaType="Integer" column="id"/>
+		<result property="userid" javaType="Integer" column="userid"/>
+		<result property="pid" javaType="Integer" column="pid"/>
+		<result property="count" javaType="Integer" column="count"/>
+		<association property="product" column="pid" select="com.haina.dao.ProductDao.selectProductById"></association>
+	</resultMap>
+	<select id="getCartList" parameterType="Map" resultMap="cartMap">
+	select * from tb_carts where userid=#{userid} limit #{startlocation},#{length}
+	</select>
+</mapper> 
+
+
+
+
